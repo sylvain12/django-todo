@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Add todo{% endblock title %}
+
+{% block content %}
+
+<div class="row text-center">
+    <div class="col-6 m-auto">
+        <h1>Add todo</h1>
+        <hr>
+
+         <form action="{% url 'todos:add' %}" method='POST'>
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.title.errors }}
+            {% comment %} <label for="{{ form.title.id_for_label }}">Title</label> {% endcomment %}
+           {{form.title}}
+        </div>
+        <input type="submit" value='Submit' class='btn btn-sm btn-dark w-100'>
+    </form>
+    </div>
+</div>
+
+{% endblock content %}
