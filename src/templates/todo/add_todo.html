@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Ajout de tâche{% endblock title %}
+
+
+{% block content %}
+<h1>Créer une nouvelle tâche</h1>
+
+<form method='POST' action="">
+{% csrf_token %}
+{{ form }}
+
+<button type='submit' class='btn btn-dark'>Envoyer</button>
+</form>
+
+
+{% endblock content %}
