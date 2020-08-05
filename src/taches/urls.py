@@ -24,5 +24,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 ]
 
+handler404 = 'todo.views.error_404_view'
+handler500 = 'todo.views.error_500_view'
+
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

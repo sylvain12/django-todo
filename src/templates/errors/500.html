@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Erreur serveur
+{% endblock title %}
+
+{% block content %}
+    <h1>Erreur serveur | 500</h1>
+    <a href="{% url 'todos:index' %}" class='btn btn-sm btn-info'>Homepage</a>
+{% endblock content %}

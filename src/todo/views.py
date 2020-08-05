@@ -4,6 +4,14 @@ from .models import Todo
 from .forms import TodoForm
 from django.contrib.auth.decorators import login_required
 
+
+# ERRORS PAGES
+def error_404_view(request, exception):
+    return render(request, 'errors/404.html')
+
+def error_500_view(request):
+    return render(request, 'errors/500.html')
+
 def index(request):
     todos = Todo.objects.all()
 

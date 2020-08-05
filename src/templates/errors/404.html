@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}
+page not found
+{% endblock title %}
+
+{% block content %}
+    <h1>Page not found | 404</h1>
+    <a href="{% url 'todos:index' %}" class='btn btn-sm btn-info'>Homepage</a>
+{% endblock content %}
