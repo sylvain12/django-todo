@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, Http404
 from .models import Todo
 from .forms import TodoForm
 
@@ -28,3 +28,16 @@ def add(request):
     
     form = TodoForm()
     return render(request, 'todo/add_todo.html', {'form': form})
+
+
+def error_404_view(request, exception):
+    return render(request, 'errors/404.html')
+
+
+def edit(request, id):
+    try:
+        todo = Todo.objects.get(id=id)
+    except Todo.DoesNotExist:
+        raise Http404("Todo does not exist")
+    print(todo, request.method)
+    return render(request, 'todo/edit_todo.html', {'todo': todo})

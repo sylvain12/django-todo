@@ -21,7 +21,7 @@ Tâches
                 </span>
                 <div class="">
                     <a href="" class='btn btn-sm btn-outline-danger'><i class='flaticon-delete'></i></a>
-                    <a href="" class='btn btn-sm btn-outline-warning'><i class='flaticon-edit'></i></a>
+                    <a href="{% url 'todos:edit' id=todo.id %}" class='btn btn-sm btn-outline-warning'><i class='flaticon-edit'></i></a>
                 </div>
             </li>
         {% endfor %}
