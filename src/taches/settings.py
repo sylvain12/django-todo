@@ -125,3 +125,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'assets')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
+
+
+# Emails SMTP (Mailjet)
+EMAIL_HOST='in-v3.mailjet.com'
+EMAIL_PORT=587
+EMAIL_HOST_USER='6f9abb0a54f2249e20a93ef70e5ab3b6'
+EMAIL_HOST_PASSWORD='2e879176595bb5158b24ffc4826e94a6'
+DEFAULT_FROM_EMAIL='sylvainka12@gmail.com'

@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.core.mail import send_mail
 
 CRITICAL = 60
 
@@ -15,6 +16,13 @@ def register(request):
         email = form_data['email']
         password = form_data['password']
         confirm_password = form_data['password_confirm']
+
+        subject = 'Account registration'
+        message = f'''
+            Hello {first_name} {last_name},
+            Welcome, your account has been created.
+        '''
+        recipients = [email]
 
         if password == confirm_password:
             if User.objects.filter(username=username).exists():
@@ -31,6 +39,8 @@ def register(request):
             messages.add_message(request, messages.ERROR, 'Password not matching')
             return redirect('/account/register/')
 
+
+        send_mail(subject=subject, message=message, recipient_list=recipients)
         messages.add_message(request, messages.SUCCESS, 'User registration successfully...')
         return HttpResponseRedirect('/')
 
