@@ -1,4 +1,6 @@
 
+@import '/static/fonts/flaticon/font/flaticon.css';
+
 [class^="flaticon-"]::before, [class*=" flaticon-"]::before, [class^="flaticon-"]::after, [class*=" flaticon-"]::after {
     margin-left: 0;
     font-size: inherit;
